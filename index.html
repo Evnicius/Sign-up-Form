@@ -9,6 +9,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
     </style>
+    <script src="forms.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -42,23 +43,23 @@
                 </p>
                 <div class="card-field">
                     <div class="col-layout">
-                        <form>
+                        <form id="form-sign-up" action="post/sign-up-confirm.html" method="post">
                             <label for="fname">FIRST NAME</label>
-                            <input type="text" name="fname" id="fname"><br><br>
+                            <input type="text" name="fname" id="fname" pattern="^([A-Z]|[a-z]){1,50}$" title="Alphabet characters only" required><br><br>
                             <label for="email">EMAIL</label>
-                            <input type="text" name="email" id="email"><br><br>
+                            <input type="text" name="email" id="email" pattern="^(.*?)([@])(.*?)[.](.*?)$" title="Example: bob@bob.com" required><br><br>
                             <label for="password">PASSWORD</label>
-                            <input type="text" name="password" id="password"><br><br>
-                        </form>
+                            <input type="password" name="password" id="password" onkeyup="checkPassword()"><br><br>
+                        <!-- </form> -->
                     </div>
                     <div class="col-layout">
-                        <form>
+                        <!-- <form id="form-sign-up"> -->
                             <label for="lname">LAST NAME</label>
-                            <input type="text" name="lname" id="lname"><br><br>
+                            <input type="text" name="lname" id="lname" pattern="^([A-Z]|[a-z]){1,50}$" title="Alphabet characters only" required><br><br>
                             <label for="pnumber">PHONE NUMBER</label>
-                            <input type="number" name="pnumber" id="pnumber"><br><br>
+                            <input type="tel" name="pnumber" id="pnumber" pattern="^(\d{10})$" title="Enter 10 Digit Number"><br><br>
                             <label for="cpassword">CONFIRM PASSWORD</label>
-                            <input type="text" name="cpassword" id="cpassword"><br><br>
+                            <input type="password" name="cpassword" id="cpassword" onkeyup="checkPassword()" required><br><br>
                         </form>
                     </div>
                 </div>
@@ -66,7 +67,7 @@
             </div>
             <div class="container-main-right-card-bottom">
                 <div class="card-button-sign-up">
-                    <button class="button-sign-up"><a class="link-no-underline" href=""> Create Account </a></button>
+                    <button class="button-sign-up" form="form-sign-up">Create Account</button>
                     <p>Already have an account? <a class="link-no-underline" href="">Log in</a></p>
                 </div>
             </div>
